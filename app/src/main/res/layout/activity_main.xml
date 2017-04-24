@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="app.com.picscramble.MainActivity">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:title="@string/app_name"
+        android:titleTextColor="@android:color/black"
+        android:id="@+id/toolbar"
+        android:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_height="wrap_content"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/fragment_container"
+        android:layout_height="wrap_content"/>
+    <app.com.picscramble.widgets.CustomViewPager
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:background="@android:color/white"
+        android:id="@+id/img_viewpager"
+        android:layout_height="130dp"/>
+</LinearLayout>
+</layout>

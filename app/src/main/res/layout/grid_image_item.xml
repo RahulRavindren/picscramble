@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="app.com.picscramble.fragments.home.data.FlickerResponse.Item"/>
+    </data>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:padding="8dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/flick_img"
+        android:scaleType="fitXY"
+        android:layout_height="150dp" />
+    <View
+        android:layout_width="match_parent"
+        android:id="@+id/result_layer_id"
+        android:visibility="gone"
+        android:background="@drawable/ic_photo_black_48px"
+        android:layout_height="150dp"/>
+</FrameLayout>
+</layout>

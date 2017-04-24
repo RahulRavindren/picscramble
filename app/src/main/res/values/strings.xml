@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">picscramble</string>
+    <string name="network_error">Oops ! Something went wrong with the network </string>
+</resources>
