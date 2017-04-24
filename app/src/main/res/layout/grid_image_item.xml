@@ -14,12 +14,12 @@
         android:layout_width="match_parent"
         android:id="@+id/flick_img"
         android:scaleType="fitXY"
-        android:layout_height="150dp" />
+        android:layout_height="100dp" />
     <View
         android:layout_width="match_parent"
         android:id="@+id/result_layer_id"
         android:visibility="gone"
         android:background="@drawable/ic_photo_black_48px"
-        android:layout_height="150dp"/>
+        android:layout_height="100dp"/>
 </FrameLayout>
 </layout>

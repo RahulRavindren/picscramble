@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.View;
 
+import java.util.Collections;
 import java.util.List;
 
 import app.com.picscramble.adapters.ViewPagerAdapter;

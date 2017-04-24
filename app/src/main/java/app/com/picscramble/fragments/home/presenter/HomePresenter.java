@@ -67,9 +67,9 @@ public class HomePresenter extends BasePresenter<HomeView>{
     }
 
     private List<FlickerResponse.Item> getRandomFive(){
-        List<FlickerResponse.Item> random = new ArrayList<>(4);
+        List<FlickerResponse.Item> random = new ArrayList<>(9);
         if (totalSetItems != null) {
-            for (int i =0 ; i < 4 ; i ++) {
+            for (int i =0 ; i < 9 ; i ++) {
                 Random rand = new Random();
                 FlickerResponse.Item item = totalSetItems.get(rand.nextInt(totalSetItems.size()));
                 random.add(item);

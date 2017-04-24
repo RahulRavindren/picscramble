@@ -33,30 +33,22 @@ import app.com.picscramble.libs.DatasetListener;
 
 public final class ImageGridAdapter extends RecyclerView.Adapter<ImageGridAdapter.ViewHolder> {
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public final class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View itemView;
         private GridImageItemBinding binding;
 
         public ViewHolder(View itemView) {
             super(itemView);
             this.itemView = itemView;
-        }
-
-        public void bindData(FlickerResponse.Item item){
-            binding = DataBindingUtil.getBinding(itemView);
-            binding.setItem(item);
-            itemView.setTag(item);
             itemView.setOnClickListener(this);
-            Glide.with(mContext).load(item.getMedia().getM()).fitCenter().into(binding.flickImg);
         }
-
 
         @Override
         public void onClick(View v) {
-            boolean status = listener.onItemClickedResult((FlickerResponse.Item) itemView.getTag(), getLayoutPosition());
+            boolean status = listener.onItemClickedResult((FlickerResponse.Item) itemView.getTag()
+                    , getAdapterPosition());
             if (status)
-                flipViewHolder(binding.getRoot(),false);
-
+                flipViewHolder(itemView,false);
         }
     }
 
@@ -72,7 +64,6 @@ public final class ImageGridAdapter extends RecyclerView.Adapter<ImageGridAdapte
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         GridImageItemBinding binding = DataBindingUtil.inflate(mInflator, R.layout.grid_image_item,parent,false);
         ViewHolder holder = new ViewHolder(binding.getRoot());
-        binding.getRoot().setTag(holder);
         return holder;
     }
 
@@ -82,9 +73,12 @@ public final class ImageGridAdapter extends RecyclerView.Adapter<ImageGridAdapte
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        if (!isFlip && holder != null) {
-            holder.bindData(data.get(holder.getPosition()));
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        if (holder != null) {
+            FlickerResponse.Item item = data.get(holder.getPosition());
+            holder.itemView.setTag(item);
+            GridImageItemBinding binding = DataBindingUtil.getBinding(holder.itemView);
+            Glide.with(mContext).load(item.getMedia().getM()).fitCenter().into(binding.flickImg);
         }
     }
 

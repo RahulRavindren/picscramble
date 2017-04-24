@@ -11,16 +11,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.LayoutAnimationController;
-import android.view.animation.TranslateAnimation;
 import android.widget.Toast;
 
 import java.util.List;
-import java.util.Timer;
-import java.util.logging.Handler;
 
 import app.com.picscramble.MainApplication;
 import app.com.picscramble.R;
@@ -58,9 +51,11 @@ public class HomeFragment extends BaseFragment<HomePresenter,HomeView>
     public void onLoadGridView(@NonNull List<FlickerResponse.Item> items) {
         if (items != null && items.size() > 0) {
             final ImageGridAdapter adapter = new ImageGridAdapter(items, getFragmentContext(),listener);
-            binding.gridViewPhoto.setLayoutManager(new GridLayoutManager(getFragmentContext(),
-                    2, GridLayoutManager.VERTICAL, false));
+            GridLayoutManager manager = new GridLayoutManager(getFragmentContext(),
+                    3, GridLayoutManager.VERTICAL, false);
+            binding.gridViewPhoto.setLayoutManager(manager);
             binding.gridViewPhoto.setAdapter(adapter);
+
             new android.os.Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
